@@ -1,1 +1,68 @@
+import requests
+import os
+from pystyle import Colors, Colorate
+import time
 
+def ngl():
+    def slow_input(prompt, delay=0.1):
+        for char in prompt:
+            print(char, end='', flush=True)
+            time.sleep(delay)
+        return input()
+    
+    R = '\033[31m'
+    G = '\033[32m'
+    W = '\033[0m'
+
+    os.system('cls' if os.name == 'nt' else 'clear')
+
+    print(Colorate.Vertical(Colors.blue_to_purple,"""
+        ░██████╗███╗░░░███╗░█████╗░██╗░░██╗███████╗
+        ██╔════╝████╗░████║██╔══██╗██║░██╔╝██╔════╝
+        ╚█████╗░██╔████╔██║███████║█████═╝░█████╗░░
+        ░╚═══██╗██║╚██╔╝██║██╔══██║██╔═██╗░██╔══╝░░
+        ██████╔╝██║░╚═╝░██║██║░░██║██║░╚██╗███████╗
+        ╚═════╝░╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝╚══════╝  
+    """))
+
+    nglusername = slow_input(Colorate.Vertical(Colors.blue_to_purple,"Username: "))
+    message = slow_input(Colorate.Vertical(Colors.blue_to_purple,"Message: "))
+    Count = int(slow_input(Colorate.Vertical(Colors.blue_to_purple,"Count:")))
+
+    print(Colorate.Vertical(Colors.green_to_blue,"**********************************************************"))
+
+    value =0
+    while value < Count:
+        headers = {
+            'Host': 'ngl.link',
+            'sec-ch-ua': '"Google Chrome";v="113", "Chromium";v="113", "Not-A.Brand";v="24"',
+            'accept': '*/*',
+            'content-type': 'application/x-www-form-urlencoded; charset=UTF-8',
+            'x-requested-with': 'XMLHttpRequest',
+            'sec-ch-ua-mobile': '?0',
+            'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/113.0.0.0 Safari/537.36',
+            'sec-ch-ua-platform': '"Windows"',
+            'origin': 'https://ngl.link',
+            'sec-fetch-site': 'same-origin',
+            'sec-fetch-mode': 'cors',
+            'sec-fetch-dest': 'empty',
+            'referer': f'https://ngl.link/{nglusername}',
+            'accept-language': 'tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7',
+        }
+
+        data = {
+            'username': f'{nglusername}',
+            'question': f'{message}',
+            'deviceId': 'ea356443-ab18-4a49-b590-bd8f96b994ee',
+            'gameSlug': '',
+            'referrer': '',
+        }
+
+        response = requests.post('https://ngl.link/api/submit',headers=headers, data=data)
+        if response.status_code == 200:
+            value += 1
+            print(G+"[+]"+W+"Send =>"+G+"{}".format(value)+W)
+        else:
+            value += 1
+            print(R+"[-]"+W+"Not Send")
+ngl()
