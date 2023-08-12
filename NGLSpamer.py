@@ -32,6 +32,7 @@ def ngl():
     print(Colorate.Vertical(Colors.green_to_blue,"**********************************************************"))
 
     value =0
+    notsend =0
     while value < Count:
         headers = {
             'Host': 'ngl.link',
@@ -60,9 +61,13 @@ def ngl():
 
         response = requests.post('https://ngl.link/api/submit',headers=headers, data=data)
         if response.status_code == 200:
+            notsend = 0
             value += 1
             print(G+"[+]"+W+"Send =>"+G+"{}".format(value)+W)
         else:
-            value += 1
+            notsend += 1
             print(R+"[-]"+W+"Not Send")
+        if notsend == 10:
+            print(R+"[!]"+W+"Wait 5 Seconds")
+            time.sleep(5)
 ngl()
