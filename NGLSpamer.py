@@ -54,7 +54,7 @@ def ngl():
         data = {
             'username': f'{nglusername}',
             'question': f'{message}',
-            'deviceId': 'ea356443-ab18-4a49-b590-bd8f96b994ee',
+            'deviceId': '0',
             'gameSlug': '',
             'referrer': '',
         }
