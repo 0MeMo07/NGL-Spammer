@@ -70,4 +70,5 @@ def ngl():
         if notsend == 10:
             print(R+"[!]"+W+"Wait 5 Seconds")
             time.sleep(5)
+            notsend = 0
 ngl()
