@@ -4,11 +4,6 @@ from pystyle import Colors, Colorate
 import time
 
 def ngl():
-    def slow_input(prompt, delay=0.1):
-        for char in prompt:
-            print(char, end='', flush=True)
-            time.sleep(delay)
-        return input()
     
     R = '\033[31m'
     G = '\033[32m'
@@ -25,9 +20,9 @@ def ngl():
         ╚═════╝░╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝╚══════╝  
     """))
 
-    nglusername = slow_input(Colorate.Vertical(Colors.blue_to_purple,"Username: "))
-    message = slow_input(Colorate.Vertical(Colors.blue_to_purple,"Message: "))
-    Count = int(slow_input(Colorate.Vertical(Colors.blue_to_purple,"Count:")))
+    nglusername = input(Colorate.Vertical(Colors.blue_to_purple,"Username: "))
+    message = input(Colorate.Vertical(Colors.blue_to_purple,"Message: "))
+    Count = int(input(Colorate.Vertical(Colors.blue_to_purple,"Count:")))
 
     print(Colorate.Vertical(Colors.green_to_blue,"**********************************************************"))
 
