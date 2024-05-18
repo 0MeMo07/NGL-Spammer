@@ -1,4 +1,3 @@
-[![CodeFactor](https://www.codefactor.io/repository/github/0memo07/ngl-spammer/badge)](https://www.codefactor.io/repository/github/0memo07/ngl-spammer)
 
 # NGL-Spammer
 This Python script is used to automatically send messages to [ngl.link](https://ngl.link) service. It sends a specified message to a given username a certain number of times.
