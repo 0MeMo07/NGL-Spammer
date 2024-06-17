@@ -22,13 +22,19 @@ This Python script is used to automatically send messages to [ngl.link](https://
      python NGLSpamer.py
 ## Usage
 
-1. Enter your username.
+1. Enter your NGL username.
 2. Enter the message you want to send.
 3. Specify the number of messages to be sent.
+4. Choose whether to use a proxy (y/n).
+   - If yes, ensure `proxies.txt` contains valid proxies.
 
 The script will automatically start sending the specified message to the given username. Successful submissions will be marked with [+] while unsuccessful submissions will be marked with [-].
 
-If there are 10 consecutive unsuccessful submissions, the script will wait for 5 seconds and then continue with the retry process.
+If there are 4 consecutive unsuccessful submissions, the script will change the device ID and user agent. If using proxies, it will also select a new proxy from `proxies.txt`.
+
+## Error Handling
+
+- If a bad proxy is encountered, the script will select a new proxy and retry.
 
 ## Screenshots
 ![image](https://github.com/0MeMo07/NGL-Spammer/assets/103096364/edba601d-7367-413c-94b5-44cb26b98759)
