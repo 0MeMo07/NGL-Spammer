@@ -46,6 +46,7 @@ def ngl():
 
     os.system('cls' if os.name == 'nt' else 'clear')
 
+
     print(Colorate.Vertical(Colors.blue_to_purple,"""
         ░██████╗███╗░░░███╗░█████╗░██╗░░██╗███████╗
         ██╔════╝████╗░████║██╔══██╗██║░██╔╝██╔════╝
@@ -55,9 +56,11 @@ def ngl():
         ╚═════╝░╚═╝░░░░░╚═╝╚═╝░░╚═╝╚═╝░░╚═╝╚══════╝  
     """))
     
+    
     nglusername = input(Colorate.Vertical(Colors.blue_to_purple,"Username: "))
     message = input(Colorate.Vertical(Colors.blue_to_purple,"Message: "))
-    Count = int(input(Colorate.Vertical(Colors.blue_to_purple,"Count:")))
+    Count = int(input(Colorate.Vertical(Colors.blue_to_purple,"Count: ")))
+    delay = float(input(Colorate.Vertical(Colors.blue_to_purple,"Delay between requests (enter 0 if you want the fastest in seconds): ")))
     use_proxy = input(Colorate.Vertical(Colors.blue_to_purple, "Use proxy? (y/n): ")).lower()
 
     if use_proxy == "y":
@@ -67,8 +70,8 @@ def ngl():
 
     print(Colorate.Vertical(Colors.green_to_blue,"**********************************************************"))
 
-    value =0
-    notsend =0
+    value = 0
+    notsend = 0
     while value < Count:
         headers = {
             'Host': 'ngl.link',
@@ -111,8 +114,12 @@ def ngl():
                 if use_proxy == "y":
                     proxies = Proxy()
                 notsend = 0
+
+            time.sleep(delay)  
+
         except requests.exceptions.ProxyError as e:
             print(R + "[-]" + W + "Bad Proxy!" + W)
             if use_proxy == "y":
                 proxies = Proxy()
+
 ngl()
