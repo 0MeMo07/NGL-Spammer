@@ -25,7 +25,8 @@ This Python script is used to automatically send messages to [ngl.link](https://
 1. Enter your NGL username.
 2. Enter the message you want to send.
 3. Specify the number of messages to be sent.
-4. Choose whether to use a proxy (y/n).
+4. Enter the delay between requests (in seconds). If you want the fastest possible requests, enter 0.
+5. Choose whether to use a proxy (y/n).
    - If yes, ensure `proxies.txt` contains valid proxies.
 
 The script will automatically start sending the specified message to the given username. Successful submissions will be marked with [+] while unsuccessful submissions will be marked with [-].
